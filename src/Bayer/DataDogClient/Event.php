@@ -260,7 +260,7 @@ class Event extends AbstractDataObject {
         if ($tags = $this->getTags()) {
             $data['tags'] = array();
             foreach ($tags as $tag => $value) {
-                $data['tags'][] = "$tag:$value";
+                $data['tags'][] = is_string($tag) ? "$tag:$value" : $value;
             }
         }
 
